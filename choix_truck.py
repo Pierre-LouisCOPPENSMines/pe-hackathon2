@@ -26,8 +26,7 @@ def choix_trucks(L_trucks:list):
                 L_dist.append(d)
         i_min=np.argmin(L_dist)
         distance=min(L_dist)
-        id_plant=L_plants[i_min].id
-        #appel fonction Noémie et Pierre-Louis
+        id=L_plants[i_min].id
         cost=-0.1*distance
 
     else:
@@ -40,7 +39,8 @@ def choix_trucks(L_trucks:list):
                 L_dist.append(cost)
         i_min=np.argmin(L_cost)
         distance=min(L_cost)
-        id_client=L_clients[i_min].id
+        id=L_clients[i_min].id
+    return(id,cost)
     #appel fonction Noémie et Pierre-Louis
 
 
