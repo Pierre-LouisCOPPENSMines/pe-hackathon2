@@ -13,7 +13,7 @@ def distance(x,y):
 
 
 def choix_trucks(L_trucks:list):
-
+    L_id=[]
     for truck in L_trucks:
         coord1=truck.coord
 
@@ -29,19 +29,21 @@ def choix_trucks(L_trucks:list):
         id=L_plants[i_min].id
         cost=-0.1*distance
 
-    else:
-        if truck.filled_bottles==0:
+    
+        if truck.filled_bottles!=0:
             L_clients=places.clients
             L_cost=[]
             for client in L_clients:
                 coord2=client.coord
                 cost=-distance(coord1,coord2)*0.1+np.max(truck.filled_bottles,int(client._capacity-client._stock))*60
-                L_dist.append(cost)
-        i_min=np.argmin(L_cost)
-        distance=min(L_cost)
-        id=L_clients[i_min].id
-    return(id,cost)
-    #appel fonction Noémie et Pierre-Louis
+                L_cost.append(cost)
+            i_min=np.argmin(L_cost)
+            distance=min(L_cost)
+            id=L_clients[i_min].id
+            cost=min(L_cost)
+        L_id.append(id,cost)
+    return(L_id)
+    
 
 
 
