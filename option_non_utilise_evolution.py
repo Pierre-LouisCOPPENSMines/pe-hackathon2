@@ -9,14 +9,17 @@ class Trajet:
         self.cout = self.calculer_cout()
 
     def calculer_distance(self):
+        """Calcul la distance entre deux lieux."""
         x1, y1 = self.origine.coord_x, self.origine.coord_y
         x2, y2 = self.destination.coord_x, self.destination.coord_y
         return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 
     def calculer_temps(self):
+        """Calcul le temps de trajet entre deux lieux."""
         return self.distance / 50  # 50 km/h
 
     def calculer_cout(self):
+        """Calcule le prix d'un trajet."""
         return self.distance * 0.10  # Coût du km
 
     def __repr__(self):
@@ -25,6 +28,7 @@ class Trajet:
 
 
 def simuler_evolution(camions, nbheures):  # camions représente la liste des camions
+    """Ebauche d'une fonction non utilisée par la suite. """
     for heure in range(nbheures):       # on avance dans le temps
         for camion in camions:
             camion.avancer_une_heure()  # Chaque camion avance d'une heure et fait ses opérations de chargement et déchargement

@@ -94,6 +94,7 @@ def generate_random_place():
 
 
 def main():
+    """Start the simulation."""
     time = 0  
     while time < 180:
         time = update(time)
@@ -102,10 +103,13 @@ def main():
         
 
 def update(t): 
+    """Update the time and the state of the trucks"""
     #studied_situation = []
     for truck in trucks : 
+        # Track trucks arriving at destination
         if (truck.arrival_time - t) < 0.1:
             truck.state = "parked"
+        #Give a new destination to this trucks
         if truck.state == "parked":
             truck.coord = truck.destination._coord  # la destination est encore le lieu où il est garé
             go_to_place = generate_random_place()
