@@ -1,3 +1,7 @@
+import pandas as pd
+
+plants_df = pd.read_csv('plants.csv')
+
 class Plants:
     """Class that regroup the factories."""
 
@@ -13,3 +17,13 @@ class Plant:
         self._init=init
         self._refill=refill
         self._plants_id=plants_id
+
+def create_plants(plants_df):
+    L=[]
+    for i in range (len(plants_df)):
+        plant=Plant((plants_df['coord_x'][i],plants_df['coord_y'][i]),plants_df['capacity'][i],plants_df['init'][i],plants_df['refill'][i],i)
+        L.append(plant)
+    plants=Plants(L)
+    return plants
+    
+plants=create_plants(plants_df)
