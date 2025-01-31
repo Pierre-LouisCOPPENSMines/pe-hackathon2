@@ -1,5 +1,5 @@
-L_type=["plant","factory"]
-L_init=[(0,"plant") for i in range (10)]+[(0,"factory") for i in range (10)]
+L_type=["plant","client"]
+L_init=[(0,"plant") for i in range (10)]+[(0,"client") for i in range (10)]
 
 
 class Step:
@@ -21,12 +21,13 @@ class Route:
         L_route=self.route
         L_route.append(L_step)
         self.route=L_route
+    
 
 
 
-
+#cet algoorithme fait que les camions vont à 10 endroits
 import random
-def trajet():
+def rd_trajet():
     route1=Route(L_init)
     for i in range(10):
         nb_plants=0
@@ -52,6 +53,9 @@ def trajet():
         route1.update(L_step)
         
 
-trajet()
+rd_trajet()
 
-            
+ #on met en entrée la liste des camions situés chez un client qui doivent repartir            
+def choix_trucks(L_trucks:list):
+    for truck in L_trucks:
+        coord=truck.coord
