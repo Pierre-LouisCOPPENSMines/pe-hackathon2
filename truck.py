@@ -6,7 +6,7 @@ print(L_init)
 #créer une fonction pour tout mettre à jour 
 
 
-#state: contient 
+#state
 class Truck:
     def __init__ (self, coord,state:str,id,empty_bottles,filled_bottles,time):
         self.coord=coord
