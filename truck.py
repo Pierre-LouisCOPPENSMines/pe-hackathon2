@@ -47,4 +47,4 @@ class Trucks:
 #contient la liste des étapes 
     def load(L:list):
 
-    #on donne en entrée une liste composé de tuple avec les identifiants des camions remplis et le nombre de bouteilles que l'on met
+#on donne en entrée une liste composé de tuple avec les identifiants des camions remplis et le nombre de bouteilles que l'on met
