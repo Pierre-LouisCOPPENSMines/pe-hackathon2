@@ -1,7 +1,7 @@
 import pandas as pd
 
 L_init=[[0,0]for i in range(100)]
-print(L)
+print(L_init)
 
 #créer une fonction pour tout mettre à jour 
 
@@ -48,5 +48,3 @@ class Trucks:
     def load(L:list):
 
     #on donne en entrée une liste composé de tuple avec les identifiants des camions remplis et le nombre de bouteilles que l'on met
-    
-
