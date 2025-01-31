@@ -25,9 +25,10 @@ class Route:
 
 
 
-#cet algoorithme fait que les camions vont à 10 endroits
+
 import random
 def rd_trajet():
+    """Crée un trajet aléatoire de 10 destinations."""
     route1=Route(L_init)
     for i in range(10):
         nb_plants=0

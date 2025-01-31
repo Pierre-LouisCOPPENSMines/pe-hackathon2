@@ -13,10 +13,12 @@ def distance(x,y):
 
 
 def choix_trucks(L_trucks:list):
+    """Fonction qui renvoie les meilleurs destinations pour les camions"""
     L_id=[]
     for truck in L_trucks:
         coord1=truck.coord
 
+        # Si le camion n'a que des bouteille vides, il va à l'usine la plus proche
         if truck.filled_bottles==0:
             L_plants=places.plants
             L_dist=[]
@@ -29,7 +31,7 @@ def choix_trucks(L_trucks:list):
         id=L_plants[i_min].id
         cost=-0.1*distance
 
-    
+        # Sinon, il va chez le clients le plus adapté
         if truck.filled_bottles!=0:
             L_clients=places.clients
             L_cost=[]
