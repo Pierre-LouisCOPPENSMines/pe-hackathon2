@@ -50,21 +50,3 @@ class Trucks:
     #on donne en entrée une liste composé de tuple avec les identifiants des camions remplis et le nombre de bouteilles que l'on met
     
 
-
-
-    
-    
-#il faut que l'on mette infos à jour dans class
-
-#créer une fonction qui remet tout à jour 
-
-
-
-    
-        
-
-# créer une fonction qui permet de remplir tout
-
-
-
-    
