@@ -18,6 +18,16 @@ class bottle:
         else:
             etat_bouteille = f"{self.etat * 100}% pleine"
 
-
         print(f"bottle: {etat_bouteille} - {self.lieu} - {self.type_lieu}")
         
+    def remplir(self):
+        if self.etat ==0:
+            if self.typelieu == "usine":
+                self.etat = 1
+
+    def vider (self):
+        if self.etat ==1:
+            if self.typelieu == "consommateur":
+                self.etat = 0
+
+    
