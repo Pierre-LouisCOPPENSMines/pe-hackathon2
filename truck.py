@@ -1,5 +1,6 @@
 import pandas as pd
-
+import math as m 
+import places as pl 
 L_init=[[0,0]for i in range(100)]
 print(L_init)
 
@@ -8,14 +9,14 @@ print(L_init)
 
 #state
 class Truck:
-    def __init__ (self, coord,state:str,id,empty_bottles,filled_bottles,time):
+    def __init__ (self, coord,state:str,id,empty_bottles,filled_bottles, destination):
         self.coord=coord
-        self.state=state
+        self.state=state #state : parked / riding
         self.id=id
-        self.empty_bottle=empty_bottles
+        self.empty_bottles=empty_bottles
         self.filled_bottles=filled_bottles
-        self.time=time
-
+        self.arrival_time = 0
+        self.destination = destination
 
 
 
@@ -46,6 +47,6 @@ class Trucks:
             L_trucks[i].state=0
         self.update(L_trucks)
 #contient la liste des étapes 
-    def load(L:list):
+    #def load(L:list):
 
 #on donne en entrée une liste composé de tuple avec les identifiants des camions remplis et le nombre de bouteilles que l'on met
