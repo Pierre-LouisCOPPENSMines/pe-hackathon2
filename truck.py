@@ -8,12 +8,13 @@ print(L_init)
 
 #state: contient 
 class Truck:
-    def __init__ (self, coord,state:str,id,empty_bottles,filled_bottles):
+    def __init__ (self, coord,state:str,id,empty_bottles,filled_bottles,time):
         self.coord=coord
         self.state=state
         self.id=id
         self.empty_bottle=empty_bottles
         self.filled_bottles=filled_bottles
+        self.time=time
 
 
 
