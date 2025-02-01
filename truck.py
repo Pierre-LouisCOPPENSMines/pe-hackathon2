@@ -17,6 +17,7 @@ class Truck:
         self.filled_bottles=filled_bottles
         self.arrival_time = 0
         self.destination = destination
+        self.itinerary = [destination]
 
 
 

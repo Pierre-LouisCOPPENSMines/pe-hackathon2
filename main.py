@@ -3,6 +3,8 @@ import pandas as pd
 import truck as tr
 import numpy as np
 import heapq as hq
+import choix_truck as ct
+import display as d 
 clients_df = pd.read_csv('clients.csv')
 plants_df = pd.read_csv('plants.csv')
 speed = 50 / 3.6 # Speed in m/s
@@ -31,32 +33,7 @@ def initialisation_places(clients_df, plants_df):
     return places
 
 
-
-
-class Places:
-    def __init__(self,clients_df, plants_df):
-        L_plants = []
-        for i in range(len(plants_df)):
-            plant = pl.Place(coord=(plants_df.loc[i, 'coord_x'], plants_df.loc[i, 'coord_y']),
-                         capacity=plants_df.loc[i, 'capacity'],
-                         init=plants_df.loc[i, 'init'],
-                         flow=plants_df.loc[i, 'refill'],
-                         place_id=i,
-                         type='plant')
-            L_plants.append(plant)
-        self.plants=L_plants
-        L_clients=[]
-        for i in range(len(clients_df)):
-            client = pl.Place(coord=(clients_df.loc[i, 'coord_x'], clients_df.loc[i, 'coord_y']),
-                         capacity=clients_df.loc[i, 'capacity'],
-                         init=clients_df.loc[i, 'init'],
-                         flow=clients_df.loc[i, 'consumption'],
-                         place_id=i,
-                         type='client')
-            L_clients.append(client)
-        self.clients=client
-        
-places=Places(clients_df, plants_df)
+places = initialisation_places(clients_df, plants_df)
 
 
 #places = initialisation_places(clients_df, plants_df)
@@ -100,6 +77,9 @@ def main():
         time = update(time)
         if len(time_list) == 0: 
             break 
+    d.draw_itinerary(trucks[0])
+    
+    
         
 
 def update(t): 
@@ -112,8 +92,11 @@ def update(t):
         #Give a new destination to this trucks
         if truck.state == "parked":
             truck.coord = truck.destination._coord  # la destination est encore le lieu où il est garé
-            go_to_place = generate_random_place()
+            print(ct.choose_trucks(truck, places))
+            place_id = ct.choose_trucks(truck, places)[0]
+            go_to_place = places[place_id]
             truck.destination = go_to_place
+            truck.itinerary.append(go_to_place)
             truck.state = "riding"
             distance_step = np.linalg.norm(np.array(truck.coord) - np.array(truck.destination._coord))
             truck.arrival_time += distance_step / speed
