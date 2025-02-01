@@ -8,3 +8,5 @@ Au final, on dispose de nos classes, de nos deux fonctions mais on n'a pas eu le
 
 On a pu assembler les fichiers ensembles et obtenir un résultat dans la soirée suivant le hackaton. Le commit a été effectué le lendemain. 
 L'actualisation des stocks n'est toujours pas prise en compte mais il serait désormais possible de l'implémenter. 
+
+Le fichier a faire tourner est le main. 
